@@ -1,18 +1,18 @@
 using UnityEngine;
 
-public class Player3 : MonoBehaviour
+public class Player4 : MonoBehaviour
 {
     [Header("Movement Settings")]
     [SerializeField] private float speed = 5f;
     [SerializeField] private float jumpForce = 13f;
     [SerializeField] private int facingDirection = 1;
 
-    [Header("Ground Check Settings")]
+    [Header("GroundCheck Settings")]
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float checkRadius;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private bool isGrounded;
- 
+
     [Header("References")]
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator animator;
@@ -41,7 +41,7 @@ public class Player3 : MonoBehaviour
 
     void Move()
     {
-        rb.linearVelocity = new Vector2(moveInput * speed,rb.linearVelocity.y);
+        rb.linearVelocity = new Vector2(moveInput * speed, rb.linearVelocity.y);
     }
 
     void Jump()
@@ -62,7 +62,7 @@ public class Player3 : MonoBehaviour
 
     void HandleAnimations()
     {
-        animator.SetFloat("Speed",Mathf.Abs(moveInput));
-        animator.SetBool("isJumping",rb.linearVelocity.y > 0.1f);
+        animator.SetFloat("Speed", Mathf.Abs(moveInput));
+        animator.SetBool("isJumping", rb.linearVelocity.y > 0.1f);
     }
 }
